@@ -279,9 +279,11 @@ sd_next(next_page = 'page6')
 :::
 
 ::: {.sd_page id=page6}
+
 Mit Klick auf die Tabs können Sie sich die Informationen anzeigen lassen, die Sie zur Beantwortung der Frage benötigen.
 Die erste Frage befindet sich im unteren Teil der Seite. 
 <br>
+
 ::: {.panel-tabset}
 ### VERA Klassenrückmeldung
 <iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
@@ -1270,6 +1272,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
