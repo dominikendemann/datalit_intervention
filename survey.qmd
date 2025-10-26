@@ -1171,7 +1171,7 @@ sd_next(next_page = "page27")
 ::: {.sd_page id=page27} 
 
 <div style="text-align: left; font-weight: bold; font-size: 19px;">
-1. Wie schätzen Sie sich im Hinblick auf die vorherigen Fragen zu den VERA-Rückmeldungen ein?
+1. Wie schätzen Sie sich im Hinblick auf die Nutzung von VERA-Rückmeldungen ein?
 </div>
 <br>
 
@@ -1210,7 +1210,7 @@ sd_next(next_page = "page27")
 <br>
 
 <div style="text-align: left; font-weight: bold; font-size: 19px;">
-2. Wie beurteilen Sie folgende Aussagen?
+2. Wie beurteilen Sie folgende Aussagen:
 </div>
 
 ```{r}
@@ -1285,6 +1285,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
