@@ -25,7 +25,7 @@ library(htmltools)
 
 # Herzlich Willkommen!
 <br><br><br><br>
-Klicken Sie auf "Weiter" um fortzufahren.
+Klicken Sie auf "Next" um fortzufahren.
 
 ```{r}
 sd_next(next_page = 'page2')
@@ -271,7 +271,7 @@ Dazu werden Ihnen nachfolgend einige Fragen gestellt, die Sie mithilfe der VERA-
 <br><br>
 Bitte beachten Sie, dass standardmäßig immer die erste VERA-Rückmeldung angezeigt wird. Dies muss aber nicht unbedingt die Rückmeldung sein, die Sie zur Beantwortung der Frage benötigen. Über die Tabs können Sie zu den anderen Materialien navigieren die Sie benötigen.
 <br><br>
-Klicken Sie auf "Weiter", um zur ersten Frage zu gelangen.
+Klicken Sie auf "Next", um zur ersten Frage zu gelangen.
 
 ```{r}
 sd_next(next_page = 'page6')
@@ -279,8 +279,9 @@ sd_next(next_page = 'page6')
 :::
 
 ::: {.sd_page id=page6}
-
-
+Mit Klick auf die Tabs können Sie sich die Informationen anzeigen lassen, die Sie zur Beantwortung der Frage benötigen.
+Die erste Frage befindet sich im unteren Teil der Seite. 
+<br>
 ::: {.panel-tabset}
 ### VERA Klassenrückmeldung
 <iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
@@ -1269,6 +1270,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
