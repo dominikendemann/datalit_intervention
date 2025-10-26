@@ -116,7 +116,7 @@ sd_next(next_page = 'page4')
 # Bitte erstellen Sie zunächst Ihren Identifikationscode
 
 Selbstgenerierte, persönliche Identifikationscodes sind eine gängige und oftmals auch die einzige Möglichkeit, mehrere Messzeitpunkte miteinander verknüpfen zu können und gleichzeitig die Anonymität der Befragten zu wahren.
-Bitte starten Sie die Befragung daher mit der Generierung Ihres Identifikationscodes. Beachten Sie folgende Hinweise, bevor Sie Ihren Code in die Kästchen eintragen:
+Bitte starten Sie die Befragung daher mit der Generierung Ihres Identifikationscodes. Beachten Sie folgende Hinweise, bevor Sie Ihren Code in die Kästchen eintragen: <br><br>
 Bitte schreiben Sie alle Zahlen zweistellig, das heißt, wenn nötig, mit führender Null. Bei mehreren oder zusammengesetzten Vornamen berücksichtigen Sie bitte nur den ersten. Wenn Sie Namen nicht kennen, schreiben Sie statt des Buchstabens ein X bzw. für die Zahl eine 00.
 Ihr Code setzt sich aus den folgenden Bestandteilen zusammen:
 <br>
@@ -269,7 +269,9 @@ sd_next(next_page = 'page51')
 Sie sind Lehrer/in einer 3. Klasse, der/die in der Mitte des ***zweiten Schulhalbjahres*** an den Vergleichsarbeiten (VERA-3) in Deutsch und Mathematik teilgenommen hat. Nun liegen die Ergebnisse vor und Sie wollen diese analysieren.
 Dazu werden Ihnen nachfolgend einige Fragen gestellt, die Sie mithilfe der VERA-Rückmeldungen sowie weiterer Materialien zu Ihrer Klasse beantworten sollen.
 <br><br>
-Bitte beachten Sie, dass standardmäßig immer die erste VERA-Rückmeldung angezeigt wird. Dies muss aber nicht unbedingt die Rückmeldung sein, die Sie zur Beantwortung der Frage benötigen. Über die Tabs können Sie zu den anderen Materialien navigieren die Sie benötigen. 
+Bitte beachten Sie, dass standardmäßig immer die erste VERA-Rückmeldung angezeigt wird. Dies muss aber nicht unbedingt die Rückmeldung sein, die Sie zur Beantwortung der Frage benötigen. Über die Tabs können Sie zu den anderen Materialien navigieren die Sie benötigen.
+<br><br>
+Klicken Sie auf "Weiter", um zur ersten Frage zu gelangen.
 
 ```{r}
 sd_next(next_page = 'page6')
@@ -1267,6 +1269,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
