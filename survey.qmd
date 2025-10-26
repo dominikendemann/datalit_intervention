@@ -861,13 +861,26 @@ reactableOutput("tabelle")
     
 ```{r}
     
-sd_next(next_page = "page18")
+sd_next(next_page = "page28")
 ```  
   
 ***
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
     
 :::  
+
+::: {.sd_page id=page28}
+
+<div style="text-align: left; font-weight: bold; font-size: 19px;">
+Bald geschafft! Nur noch fünf Fragen.
+</div>
+
+```{r}
+    
+sd_next(next_page = "page18")
+```  
+
+:::
 
 ::: {.sd_page id=page18}   
 
@@ -1272,6 +1285,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
