@@ -1,0 +1,1274 @@
+---
+format: html
+echo: false
+warning: false
+footer-left: "Made with [surveydown](https://surveydown.org)"
+footer-right: '[<i class="bi bi-github"></i> Source Code](https://github.com/surveydown-dev/templates)'
+---
+
+```{r}
+#Sys.setenv(TZ = "UTC")
+library(surveydown)
+library(shinyjs)
+library(shiny)
+library(reactable)
+library(knitr)
+library(htmltools)
+```
+
+::: {.sd_page id=welcome}
+
+<div style="text-align: center;">
+  <iframe     src="fub.jpg"  width="220" height="82" frameborder="0" style="border: none;"> </iframe>
+</div>
+
+
+# Herzlich Willkommen!
+<br><br><br><br>
+Klicken Sie auf "Weiter" um fortzufahren.
+
+```{r}
+sd_next(next_page = 'page2')
+
+```
+<br><br><br><br>  
+
+***  
+
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>
+
+:::
+
+::: {.sd_page id=page2}
+
+<div style="text-align: right;">
+  <iframe     src="fub.jpg"  width="220" height="82" frameborder="0" style="border: none;"> </iframe>
+</div>
+
+Liebe/r Teilnehmer/in,
+
+bitte lesen Sie die untenstehenden Informationen genau durch:
+
+Der folgende Fragebogen wurde im Rahmen eines Forschungsprojekts an der Freien Universität Berlin erstellt.  Die Bearbeitung nimmt etwa 20 bis 30 Minuten in Anspruch. Ein Zeitlimit gibt es hierfür nicht. 
+
+Sämtliche in der Studie erhobenen Daten werden pseudonymisiert erfasst und ausgewertet. Das bedeutet, dass sämtliche in der Studie erfassten Daten so gespeichert werden, dass keine direkten Rückschlüsse von den Daten auf Ihre Person möglich sind. Die erhobenen Daten werden ausschließlich für wissenschaftliche Zwecke verwendet und vertraulich behandelt. Nach Abschluss des Projekts werden sämtliche Daten gelöscht.
+
+Bei Interesse oder Fragen können Sie sich mit einer E-Mail an [d.endemann@fu-berlin.de](mailto:d.endemann@fu-berlin.de) wenden und zusätzliche Informationen zum Zweck und Ausgang der Studie erhalten.
+
+
+***
+
+```{r}
+sd_question(
+  type  = 'mc_multiple',
+  id    = 'einverstanden',
+  label = " ",
+  option = c(
+    'Ich bin einverstanden und möchte teilnehmen.'    = 'einverstanden'))
+```
+
+```{r}
+sd_next(next_page = 'page3')
+```
+
+::: 
+
+::: {.sd_page id=page3}
+
+
+#### Wir empfehlen Ihnen für die Durchführung folgendes:
+
+* Bitte legen Sie sich einen Notizzettel bereit.
+* Bearbeiten Sie den Test bitte an einem PC, Laptop oder Tablet.
+
+***
+
+#### Beachten Sie bei der Bearbeitung folgende Hinweise: 
+
+* Über den Fragen werden immer alle Rückmeldungen und Zusatzinformationen angezeigt und nicht nur die, die Sie zur Beantwortung der jeweiligen Frage benötigen.
+
+* Bei manchen Fragen wird konkret angegeben, welche Materialien Sie zur Beantwortung nutzen sollen. Beziehen Sie bitte in diesem Fall ausschließlich die genannten Materialien ein.
+
+* Versuchen Sie möglichst alle Fragen zu beantworten. Wenn Sie sich bei einer Antwort unsicher sind, wählen Sie die Antwort, die Ihnen am plausibelsten erscheint.
+
+* Es gibt **keinen** Zurück-Button.
+
+```{r}
+sd_question(
+  type  = 'mc_multiple',
+  id    = 'info_2',
+  label = " ",
+  option = c(
+    'Ich habe die Informationen gelesen.'    = 'info2_ja'))
+```
+
+```{r}
+sd_next(next_page = 'page4')
+```
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+
+:::  
+
+::: {.sd_page id=page4}
+
+# Bitte erstellen Sie zunächst Ihren Identifikationscode
+
+Selbstgenerierte, persönliche Identifikationscodes sind eine gängige und oftmals auch die einzige Möglichkeit, mehrere Messzeitpunkte miteinander verknüpfen zu können und gleichzeitig die Anonymität der Befragten zu wahren.
+Bitte starten Sie die Befragung daher mit der Generierung Ihres Identifikationscodes. Beachten Sie folgende Hinweise, bevor Sie Ihren Code in die Kästchen eintragen:
+Bitte schreiben Sie alle Zahlen zweistellig, das heißt, wenn nötig, mit führender Null. Bei mehreren oder zusammengesetzten Vornamen berücksichtigen Sie bitte nur den ersten. Wenn Sie Namen nicht kennen, schreiben Sie statt des Buchstabens ein X bzw. für die Zahl eine 00.
+Ihr Code setzt sich aus den folgenden Bestandteilen zusammen:
+<br>
+
+
+```{r}
+
+sd_question(
+type = "numeric",
+id = "code_1",
+label = "1. Der Monat (als Zahl), in dem Sie geboren sind (01 bis 12)",
+width = "30%"
+)
+
+
+sd_question(
+type = "mc",
+id = "code_2",
+label = "2. Ihr Geschlecht zum Zeitpunkt Ihrer Geburt (M/W)",
+option = c("Männlich" = "M", "Weiblich" = "W"),
+width = "30%"
+)
+
+
+
+sd_question(
+type = "text",
+id = "code_3",
+label = "3. Der erste Buchstabe Ihres Vornamens (A bis Z)",
+width = "30%"
+)
+
+
+sd_question(
+type = "text",
+id = "code_4",
+label = "4. Der erste Buchstabe des Vornamens Ihrer Mutter (A bis Z)",
+width = "30%"
+)
+
+
+sd_question(
+type = "numeric",
+id = "code_5",
+label = "5. Die Anzahl Ihrer älteren Geschwister (z. B. 00 oder 03)",
+width = "30%"
+)
+```
+```{r}
+sd_next(next_page = 'page5')
+```
+
+:::
+
+
+::: {.sd_page id=page5}
+
+## Bitte beantworten Sie zunächst folgende Fragen zu Ihrer Person:
+
+```{r}
+sd_question(
+  type  = 'mc',
+  id    = 'geschlecht',
+  label = "**Wie identifizieren Sie sich in Bezug auf Ihr Geschlecht?**",
+  option = c(
+    'weiblich'    = 'gesch_w',
+    'männlich' = 'gesch_m',
+    'andere'    = 'gesch_andere',
+    'keine Angabe' = 'gesch_ka'
+     ),
+  width = "100%", 
+  height = "100%"
+)  
+
+
+```
+<br>
+
+Wie alt sind Sie?
+
+```{r}
+sd_question(
+  type  = "numeric",
+  id    = "alter",
+ label = "in Jahren:",
+ width = "30%"
+)
+
+```
+
+
+```{r}
+
+sd_question(
+  type  = 'mc',
+  id    = 'fach',
+  label = "**Was ist/war Ihr Vertiefungsfach im Grundschullehramtsstudium?**",
+  option = c(
+    'Deutsch'    = 'f_deu',
+    'Englisch' = 'f_eng',
+    'Französisch'    = 'f_fra',
+    'Mathematik' = 'f_mat',
+    'Informatik'    = 'f_inf',
+    'Physik' = 'f_phy',
+    'Geschichte'    = 'f_ges',
+    'Politik' = 'f_pol',
+    'Sachunterricht' = 'f_sach',
+    'Sonderpädagogik'    = 'f_sopaed'
+     ),
+  width = "100%", 
+  height = "100%"
+)
+
+sd_question(
+  type  = "text",
+  id    = "fach_andere",
+  label = "Falls Ihr Fach nicht in der Liste aufgeführt ist, tragen Sie es bitte hier ein."
+)
+
+```
+
+In welchem Fachsemester befinden Sie sich? -  ***Bachelor- und Mastersemester bitte addieren.***
+
+```{r}
+sd_question(
+  type  = "numeric",
+  id    = "semester",
+ label = "Semester:",
+ width = "30%"
+)
+
+```
+
+
+
+
+```{r}
+sd_next(next_page = 'page51')
+```
+  
+---
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+
+
+:::  
+
+::: {.sd_page id=page51}
+#### Bitte versetzen Sie sich in folgende Situation:
+
+Sie sind Lehrer/in einer 3. Klasse, der/die in der Mitte des ***zweiten Schulhalbjahres*** an den Vergleichsarbeiten (VERA-3) in Deutsch und Mathematik teilgenommen hat. Nun liegen die Ergebnisse vor und Sie wollen diese analysieren.
+Dazu werden Ihnen nachfolgend einige Fragen gestellt, die Sie mithilfe der VERA-Rückmeldungen sowie weiterer Materialien zu Ihrer Klasse beantworten sollen.
+<br><br>
+Bitte beachten Sie, dass standardmäßig immer die erste VERA-Rückmeldung angezeigt wird. Dies muss aber nicht unbedingt die Rückmeldung sein, die Sie zur Beantwortung der Frage benötigen. Über die Tabs können Sie zu den anderen Materialien navigieren die Sie benötigen. 
+
+```{r}
+sd_next(next_page = 'page6')
+```
+:::
+
+::: {.sd_page id=page6}
+
+
+::: {.panel-tabset}
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::
+  
+**Aus wie vielen Schüler/innen besteht die Vergleichsgruppe im Bereich *Deutsch: Lesen*?**
+
+```{r}
+     
+sd_question(
+  type  = 'numeric',
+  id    = 'V101',
+  label = " ",
+  width = "30%",
+    cols = "2"
+)
+```
+
+```{r}
+
+sd_next(next_page = "page7")
+```  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
+
+:::  
+  
+::: {.sd_page id=page7}
+
+
+::: {.panel-tabset}
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::
+
+```{r}
+    
+    sd_question(
+      type  = 'mc_multiple_buttons',
+      id    = 'V102',
+      label = "**Welche Schüler/innen haben im Bereich *Deutsch: Zuhören* die Kompetenzstufe III erreicht?**",
+      option = c(
+    "Schüler/in 1" = "1",
+     "Schüler/in 2" = "2",
+     "Schüler/in 3" = "3",
+     "Schüler/in 4" = "4",
+     "Schüler/in 5" = "5",
+     "Schüler/in 6" = "6",
+     "Schüler/in 7" = "7",
+     "Schüler/in 8" = "8",
+     "Schüler/in 9" = "9",
+     "Schüler/in 10" = "10",
+     "Schüler/in 11" = "11",
+     "Schüler/in 12" = "12",
+     "Schüler/in 13" = "13",
+     "Schüler/in 14" = "14",
+     "Schüler/in 15" = "15",
+     "Schüler/in 16" = "16",
+     "Schüler/in 17" = "17",
+     "Schüler/in 18" = "18",
+     "Schüler/in 19" = "19",
+     "Schüler/in 20" = "20",
+     "Schüler/in 21" = "21",
+     "Schüler/in 22" = "22"
+      )
+    )
+```
+
+
+
+
+
+```{r}
+sd_next(next_page = "page8")
+```
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
+
+:::
+
+
+::: {.sd_page id=page8}
+
+
+::: {.panel-tabset}
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler/innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::
+  
+**Wie viele Schüler/innen Ihrer Klasse haben einen sonderpädagogischen Förderschwerpunkt?**
+  
+```{r}
+    
+    sd_question(
+      type  = 'numeric',
+      id    = 'V103',
+      width = "30%",
+      label = "",
+    )
+```  
+
+```{r}
+
+sd_next(next_page = "page9")
+```  
+
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>
+
+:::
+
+::: {.sd_page id=page9}
+
+
+::: {.panel-tabset}
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::
+  
+**Wie viele Schüler/innen Ihrer Klasse verfehlen in Mathematik den Mindeststandard in beiden Leitideen?**  
+  
+```{r}
+    
+    sd_question(
+      type  = 'numeric',
+      id    = 'V104',
+      width = "30%",
+      label = " "
+    )
+```
+
+```{r}
+
+sd_next(next_page = "page10")
+```
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>
+
+:::  
+
+::: {.sd_page id=page10}
+
+
+::: {.panel-tabset}
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::
+  
+  **Wie groß ist der Unterschied in der Lösungshäufigkeit zwischen dem/der schwächsten und dem/der besten Schüler/in im Bereich *Mathematik: Raum und Form*? (in Prozentpunkten)**  
+  
+```{r}
+    
+    sd_question(
+      type  = 'numeric',
+      id    = 'V105',
+      width = "30%",
+      label = " "
+    )
+```
+
+```{r}
+
+sd_next(next_page = "page11")
+```
+
+***  
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>
+
+:::  
+
+::: {.sd_page id=page11}
+
+
+::: {.panel-tabset}
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::
+  
+ 
+```{r}
+    
+    sd_question(
+      type  = 'mc',
+      id    = 'V106',
+      label = "**In welchem getesteten Bereich ist die Spanne der Lösungshäufigkeiten zwischen den individuellen Schüler/innen in Ihrer Klasse am kleinsten?**",
+      option = c(
+        "A) Mathematik: Raum und Form" = "1",
+        "B) Mathematik: Daten, Häufigkeit, Wahrscheinlichkeit" = "2",
+        "C) Deutsch: Lesen" = "3",
+        "D) Deutsch: Zuhören" = "4"
+      )
+    )
+    
+```
+
+```{r}
+
+sd_next(next_page = "page12")
+```
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>
+
+:::  
+
+::: {.sd_page id=page12}
+
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::
+  
+ 
+```{r}
+    
+    sd_question(
+      type  = 'mc',
+      id    = 'V107_n',
+      label = "**Wie fallen die geschlechtsspezifischen Leistungsunterschiede in Mathematik: Raum & Form (Gesamt) an Ihrer Schule und im Verhältnis zur Vergleichsgruppe aus?**",
+      option = c(
+        "A) An Ihrer Schule zeigen sich keine geschlechtsspezifischen Leistungsunterschiede, während in der Vergleichsgruppe deutliche Unterschiede bestehen." = "1",
+        "B) Sowohl an Ihrer Schule als auch in der Vergleichsgruppe bestehen kaum geschlechtsspezifische Leistungsunterschiede." = "2",
+        "C) An Ihrer Schule zeigen sich im Gegensatz zur Vergleichsgruppe stärkere geschlechtsspezifische Leistungsunterschiede." = "3",
+        "D)	In der Vergleichsgruppe sind die Jungen deutlich besser, während in ihrer Schule die Mädchen besser abschneiden." = "4"
+      )
+    )
+    
+```
+
+```{r}
+sd_next(next_page = "page13")
+```
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>
+
+:::
+
+
+
+  
+::: {.sd_page id=page13}  
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+    
+```{r}
+    
+    sd_question(
+      type  = 'mc',
+      id    = 'V109',
+      label = "**Ihre Klasse schneidet in *Mathematik: Daten, Häufigkeit und Wahrscheinlichkeit* deutlich schlechter ab als die Vergleichsgruppe. Wodurch könnte dies erklärt werden?**",
+      option = c(
+        "A) Nicht alle Themen aus diesem Kompetenzbereich wurden vor VERA im Unterricht bearbeitet." = "1",
+        "B) Einige leistungsstarke Schüler/innen nahmen nicht an VERA teil." = "2",
+        "C) Das Leistungsniveau in Ihrer Klasse ist generell unterdurchschnittlich." = "3",
+        "D) Dieser Kompetenzbereich ist nicht Teil des internen Curriculums für die 3. Klasse." = "4"
+      )
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page14")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::
+
+::: {.sd_page id=page14} 
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+**Mehrere Schüler/innen erreichen in Deutsch in beiden getesteten Bereichen mindestens den Regelstandard. Mit Blick auf die Noten, bzw. die Klassenliste: Bei welchem/r Schüler/in ist dieses Abschneiden  am überraschendsten?**  
+
+
+```{r}
+    
+    sd_question(
+      type  = 'numeric',
+      id    = 'V110_n',
+      label = "Geben Sie hier die Nummer ein.",
+      width = "30%"
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page15")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::
+
+
+
+::: {.sd_page id=page15}  
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+**Welche/r Schüler/in, der/die in *Deutsch: Lesen* bereits die Kompetenzstufe II erreicht, könnte trotzdem zusätzliche Förderung benötigen, wenn Noten, Herkunftssprache und eine mögliche Teilleistungsstörung mitberücksichtigt werden?**
+
+```{r}
+    
+    sd_question(
+      type  = 'numeric',
+      id    = 'V112',
+      label = " ",
+      width = "30%"
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page16")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::
+  
+::: {.sd_page id=page16} 
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+
+
+```{r}
+    
+     sd_question(
+      type  = 'mc',
+      id    = 'V113',
+      label = "**Schüler 9 schnitt in *Mathematik: Raum und Form* überraschend schlecht ab. Unter Berücksichtigung der Informationen in der Klassenliste: Womit könnte das Abschneiden begründet werden ?**",
+      option = c(
+        "A) Wegen mangelnder Lesekompetenz hat der Schüer die Instruktion nicht verstanden." = "1",
+        "B) Fehlende Motivation in der Schule." = "2",
+        "C) Abwesenheit bei der Vorbereitung auf VERA und somit keine Kenntnis des Testformats." = "3",
+        "D) Keiner der genannten Punkte liefert einen Erklärungsansatz." = "4"
+      )
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page17")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::
+  
+  
+::: {.sd_page id=page17}  
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+
+
+```{r}
+    
+     sd_question(
+      type  = 'mc',
+      id    = 'V114',
+      label = "**Unter Berücksichtigung der vorliegenden Informationen in der Klassenliste: Was könnte das überraschend schlechte Abschneiden in VERA von Schüler 4 in Mathematik erklären?**",
+      option = c(
+        "A) Leseprobleme wegen einer Teilleistungsstörung in Deutsch" = "1",
+        "B) Probleme mit dem Testformat wegen Abwesenheit" = "2",
+        "C) Keiner der genannten Punkte liefert einen Erklärungsansatz" = "3",
+        "D) Abwesenheit bei Unterrichtseinheiten, in denen die in VERA getestetet Bereiche behandelt wurden" = "4"
+      )
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page18")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::  
+
+::: {.sd_page id=page18}   
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+
+
+```{r}
+    
+    sd_question(
+      type  = 'mc',
+      id    = 'V115',
+      label = "**Mit Blick auf die VERA-Klassenrückmeldung und das interne Curriculum der 3. Klasse: Welcher Kompetenzbereich sollte im Fach Deutsch zur Erreichung der Bildungsstandards in der 4. Jgst. (nochmal) intensiv behandelt werden?**",
+      option = c(
+        "A) Deutsch: Zuhören - Inhalte zuhörend verstehen" = "1",
+        "B) Deutsch: Lesen - gezielt Informationen suchen" = "2",
+        "C) Deutsch: Lesen - zentrale Aussagen erfassen" = "3",
+        "D) keiner der genannten" = "4"
+      )
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page19")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::   
+
+
+::: {.sd_page id=page19}   
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+
+
+```{r}
+    
+    sd_question(
+      type  = 'mc',
+      id    = 'V116',
+      label = "**Mit Blick auf die Klassenrückmeldung: Im nachfolgenden Deutschunterricht  sollte im Lesen ein Schwerpunkt darauf liegen, dass...**",
+      option = c(
+        "A) ... die Schüler/innen Informationen in Texten verknüpfen und Texte ansatzweise als Ganzes erfassen können." = "1",
+        "B) ... die Schüler/innen Themen und Handlungsmotive erkennen, die im Text nicht explizit genannt sind." = "2",
+        "C) ... die Schüler/innen Buchstaben, einfache Silben und bekannte Wörter in Texten wiederfinden." = "3",
+        "D) ... die Schüler/innen sorgfältiges Recherchieren von Einzelheiten im Text üben." = "4"
+      )
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page20")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::   
+
+
+
+::: {.sd_page id=page20}   
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+
+```{r}
+    
+   sd_question(
+      type  = 'mc_multiple_buttons',
+      id    = 'V118',
+      label = "**Sie haben im Rahmen einer Fortbildung ein Trainingsverfahren  kennengelernt, mit dem das automatisierte Lesen und der Aufbau eines Sichtwortschatzes gefördert wird (*Blitzlesen*). Mit Blick auf die VERA-Ergebnisse: Mit welchen Schüler/innen würden Sie dieses Verfahren im Rahmen einer optionalen Übungsstunde als erstes durchführen?**",
+      option = c(
+     "Schüler/in 1" = "1",
+     "Schüler/in 2" = "2",
+     "Schüler/in 3" = "3",
+     "Schüler/in 4" = "4",
+     "Schüler/in 5" = "5",
+     "Schüler/in 6" = "6",
+     "Schüler/in 7" = "7",
+     "Schüler/in 8" = "8",
+     "Schüler/in 9" = "9",
+     "Schüler/in 10" = "10",
+     "Schüler/in 11" = "11",
+     "Schüler/in 12" = "12",
+     "Schüler/in 13" = "13",
+     "Schüler/in 14" = "14",
+     "Schüler/in 15" = "15",
+     "Schüler/in 16" = "16",
+     "Schüler/in 17" = "17",
+     "Schüler/in 18" = "18",
+     "Schüler/in 19" = "19",
+     "Schüler/in 20" = "20",
+     "Schüler/in 21" = "21",
+     "Schüler/in 22" = "22"
+      )
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page21")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+::: 
+
+::: {.sd_page id=page21}  
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+
+
+```{r}
+    
+   sd_question(
+      type  = 'mc',
+      id    = 'V119',
+      label = "**Die Schülerin 1 erreicht nur Kompetenzstufe 1, der Anteil richtig gelöster Aufgaben liegt bei 36% und die Note in der vorherigen Klassenarbeit ist eine 5. Kompetenzstufe 1 bedeutet: *„Kinder auf der … Kompetenzstufe I sind in der Lage, konkrete Informationen zu identifizieren oder wiederzugeben“.* Welche Übungen schlagen Sie für Schülerin 1 in Deutsch Lesen vor?**",
+      option = c(
+        "A) Lokalisierungsaufgaben, bei denen teilweise auch einfache Schlussfolgerungen gezogen werden müssen." = "1",
+        "B) Übungen zum Gliedern eines Textes in Abschnitte, um dessen Struktur zu erkennen." = "2",
+        "C) Übungen zum Verknüpfen aller Textelemente zu einer logischen Gesamtaussage." = "3",
+        "D) Übungen zum Erkennen von Handlungssschritten." = "4"
+      )
+    )
+```
+    
+```{r}
+    
+sd_next(next_page = "page22")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+::: 
+
+
+::: {.sd_page id=page22}   
+
+::: {.panel-tabset}  
+### VERA Klassenrückmeldung
+<iframe align="mid" src= "KRM.pdf#page=1&zoom=90&pagemode=none"width="100%" height="500"></iframe>
+
+### VERA Schüler*innenrückmeldung
+<iframe align="mid" src= "SuSRM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Klassenliste
+```{r}
+reactableOutput("tabelle")
+```
+
+### Internes Curriculum Deutsch
+<iframe align="mid" src= "CurrD.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+### Internes Curriculum Mathematik
+<iframe align="mid" src= "CurrM.pdf#page=1&zoom=90&pagemode=none"width="800" height="500"></iframe>
+
+:::  
+  
+```{r}
+    
+   sd_question(
+      type  = 'mc',
+      id    = 'V121',
+      label = "**Mit Blick auf die VERA-Ergebnisse: Für welche Schüler/innen könnte in Mathematik im Bereich Raum und Form das Erstellen komplexerer achsensymmetrischer Figuren an horizontalen und vertikalen Symmetrieachsen der nächste Lernschritt sein?**",
+      option = c(
+        "A) 4, 20" = "1",
+        "B) 9, 12" = "2",
+        "C) 14, 21" = "3",
+        "D) 3, 15" = "4"
+      )
+    )
+     
+```
+    
+```{r}
+    
+sd_next(next_page = "page26")
+```  
+  
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+::: 
+
+::: {.sd_page id=page26} 
+
+<div style="text-align: center; font-weight: bold; font-size: 19px;">
+Vielen Dank!<br> Nun haben wir noch ein paar Fragen zu Ihrer Sicht auf datengestützte Unterrichtsentwicklung.
+</div>
+
+
+
+```{r}
+    
+sd_next(next_page = "page27")
+```
+
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::
+
+
+
+
+::: {.sd_page id=page27} 
+
+<div style="text-align: left; font-weight: bold; font-size: 19px;">
+1. Wie schätzen Sie sich im Hinblick auf die vorherigen Fragen zu den VERA-Rückmeldungen ein?
+</div>
+<br>
+
+```{r}
+    
+   sd_question(
+  type   = "matrix",
+  id     = "selfeff",
+  label  = "**Wie sicher fühlen Sie sich, die aufgelisteten Kompetenzfacetten anwenden zu können?**",
+  row    = c(
+
+ "Daten auf unterschiedlichen Ebenen (Einzelaufgaben, Gesamttest) zu verstehen" = "1",
+"Auswertungsergebnisse anhand relevanter Kontextfaktoren  zu interpretieren" = "2",
+"Grafische Darstellungen von Daten zu verstehen" = "3",
+"Muster und Trends in den Daten zu erkennen" = "4",
+"Aus den gewonnen Informationen Konsequenzen für meinen Unterricht abzuleiten" = "5",
+"Die Stärken und Schwächen der Schüler*innen datengestützt zu diagnostizieren" = "6"
+
+  ),
+  option = c(
+    "kann ich gar nicht sicher" = "1",
+    " "  = "2",
+    " "  = "3",
+    " "    = "4",
+    " "  = "5",
+    "kann ich sehr sicher"  = "6"
+  )
+)
+
+```
+
+<br>
+
+***
+
+<br>
+
+<div style="text-align: left; font-weight: bold; font-size: 19px;">
+2. Wie beurteilen Sie folgende Aussagen?
+</div>
+
+```{r}
+    
+   sd_question(
+  type   = "matrix",
+  id     = "akzeptanz",
+  label  = "**Landesweite Vergleichsarbeiten (VERA-3) …**",
+  row    = c(
+
+ "sollten regelmäßig durchgeführt werden." = "1",
+"sind für die Arbeit der Schulen wichtig." = "2",
+"bringen nur Unruhe in die Schulen." = "3_i",
+"schaffen mehr Probleme als sie nützen." = "4_i",
+"tragen dazu bei, dass man sich in den Schulen mehr bemüht." = "5",
+"bieten eine Grundlage, um objektiv zu sehen, wo eine Schule steht." = "6",
+"bieten eine gute Grundlage für die Diskussion im Kollegium." = "7"
+
+  ),
+  option = c(
+    "stimme nicht zu" = "1",
+    "stimme eher nicht zu"  = "2",
+    "stimme eher  zu"  = "3",
+    "stimme völlig zu"    = "4"
+  )
+)
+
+```
+
+
+```{r}
+    
+sd_next(next_page = "page29")
+```
+
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div>  
+    
+:::
+
+
+::: {.sd_page id=page29} 
+
+<div style="text-align: center; font-weight: bold; font-size: 19px;">
+Geschafft! Vielen Dank für Ihre Teilnahme!
+</div>  
+<br><br><br>
+
+
+
+```{r}
+sd_next(next_page = "end")
+```
+
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
+
+:::
+
+::: {.sd_page id=end} 
+  
+## Vielen Dank!
+
+Bitte klicken Sie auf Beenden, bzw. schließen Sie das Browserfenster.
+
+
+```{r}
+sd_close("Beenden")
+```
+
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
+
+:::
+
+
+
+
+
