@@ -179,6 +179,19 @@ sd_next(next_page = 'page5')
 ```{r}
 sd_question(
   type  = 'mc',
+  id    = 'intervention',
+  label = "**Nehmen Sie an einem der Lernforschungsprojekte (Montags oder Donnerstags) von Dominik Endemann teil?**",
+  option = c(
+    'Ja'    = 'int_ja',
+    'Nein' = 'int_nein'
+     ),
+  width = "100%", 
+  height = "100%"
+)  
+
+
+sd_question(
+  type  = 'mc',
   id    = 'geschlecht',
   label = "**Wie identifizieren Sie sich in Bezug auf Ihr Geschlecht?**",
   option = c(
@@ -1285,6 +1298,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
