@@ -28,7 +28,7 @@ library(htmltools)
 Klicken Sie auf "Next" um fortzufahren.
 
 ```{r}
-sd_next(next_page = 'page2')
+sd_next(next_page = 'page3')
 
 ```
 <br><br><br><br>  
@@ -39,40 +39,7 @@ sd_next(next_page = 'page2')
 
 :::
 
-::: {.sd_page id=page2}
 
-<div style="text-align: right;">
-  <iframe     src="fub.jpg"  width="220" height="82" frameborder="0" style="border: none;"> </iframe>
-</div>
-
-Liebe/r Teilnehmer/in,
-
-bitte lesen Sie die untenstehenden Informationen genau durch:
-
-Der folgende Fragebogen wurde im Rahmen eines Forschungsprojekts an der Freien Universität Berlin erstellt.  Die Bearbeitung nimmt etwa 30-40 Minuten in Anspruch. Ein Zeitlimit gibt es hierfür nicht. 
-
-Sämtliche in der Studie erhobenen Daten werden pseudonymisiert erfasst und ausgewertet. Das bedeutet, dass sämtliche in der Studie erfassten Daten so gespeichert werden, dass keine direkten Rückschlüsse von den Daten auf Ihre Person möglich sind. Die Teilnahme an der Erhebung erfolgt freiwillig und Sie können die Erhebung jederzeit ohne Angabe von Gründen und ohne, dass Ihnen Nachteile entstehen, abbrechen. Die erhobenen Daten werden ausschließlich für wissenschaftliche Zwecke verwendet und vertraulich behandelt. Nach Abschluss des Projekts werden sämtliche Daten gelöscht.
-<br>
-
-Bei Interesse oder Fragen können Sie sich mit einer E-Mail an [d.endemann@fu-berlin.de](mailto:d.endemann@fu-berlin.de) wenden und zusätzliche Informationen zum Zweck und Ausgang der Studie erhalten.
-
-
-***
-
-```{r}
-sd_question(
-  type  = 'mc_multiple',
-  id    = 'einverstanden',
-  label = " ",
-  option = c(
-    'Ich bin einverstanden und möchte teilnehmen.'    = 'einverstanden'))
-```
-
-```{r}
-sd_next(next_page = 'page3')
-```
-
-::: 
 
 ::: {.sd_page id=page3}
 
@@ -1383,6 +1350,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
