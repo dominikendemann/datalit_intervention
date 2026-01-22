@@ -60,7 +60,7 @@ server <- function(input, output, session) {
   # Database designation and other settings
   sd_server(
     db = db,
-    required_questions = c("info_2", "code_1", "code_2", "code_3", "code_4", "code_5"), #Pflichtrfgen 
+    required_questions = c("intervention_1", "intervention_2", "info_2", "code_1", "code_2", "code_3", "code_4", "code_5"), #Pflichtrfgen 
     language = "de"
         )
 
@@ -137,4 +137,5 @@ server <- function(input, output, session) {
 
 # shinyApp() initiates your app - don't change it
 shiny::shinyApp(ui = sd_ui(), server = server)
+
 
