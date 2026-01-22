@@ -50,7 +50,7 @@ server <- function(input, output, session) {
  input$intervention_1 == "int_1" ~ "ev_practice_relevance",
  input$intervention_1 == "int_1" ~ "ev_cognitive_activation",
  input$intervention_1 == "int_1" ~ "ev_exchange",
-   input$intervention_1 == "int_1" ~ "dummy_lfp",
+  
 
  # Wenn kein LFP frage ob Schulung besucht vor Test
  input$intervention_1 == "int_nein" ~ "intervention_2")
@@ -138,6 +138,7 @@ server <- function(input, output, session) {
 
 # shinyApp() initiates your app - don't change it
 shiny::shinyApp(ui = sd_ui(), server = server)
+
 
 
 
