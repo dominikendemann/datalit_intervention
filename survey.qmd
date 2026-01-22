@@ -1221,7 +1221,7 @@ sd_next(next_page = "page27")
 
 ```{r}
     
-sd_next(next_page = "page29")
+sd_next(next_page = "page29_a")
 ```
 
 ***
@@ -1229,8 +1229,128 @@ sd_next(next_page = "page29")
     
 :::
 
+::: {.sd_page id=page29_a} 
 
-::: {.sd_page id=page29} 
+<div style="text-align: left; font-weight: bold; font-size: 19px;">
+Bitte beurteilen Sie nun noch das gesamte Seminar "Lernforschungsprojekt".  
+</div>
+<br>
+
+
+```{r}
+sd_question(
+  type  = "matrix",
+  id    = "ev_clarity",
+  label = "1. Klarheit und Struktur",
+  row   = c(
+    "a) Die Ziele der Veranstaltung wurden klar benannt." =
+      "clarity_1",
+    "b) Die Veranstaltungsinhalte wurden verständlich erklärt." =
+      "clarity_2",
+    "c) In der Veranstaltung wurde die Zeit effizient genutzt." =
+      "clarity_3",
+    "d) Der Ablauf der Veranstaltung wurde zu Beginn verdeutlicht." =
+      "clarity_4",
+    "e) Die einzelnen Bestandteile der Veranstaltung bauten sinnvoll aufeinander auf." =
+      "clarity_5"
+  ),
+  option = c(
+    "Stimme überhaupt nicht zu" = "1",
+    "Stimme eher nicht zu"      = "2",
+    "Stimme eher zu"            = "3",
+    "Stimme voll zu"            = "4"  ))
+
+
+sd_question(
+  type  = "matrix",
+  id    = "ev_practice_relevance",
+  label = "2. Praxisbezug",
+  row   = c(
+    "a) Die Auseinandersetzung mit den Inhalten erfolgte anhand realer Beispiele aus der schulischen Praxis." =
+      "practice_1",
+    "b) Die in der Veranstaltung behandelten Aspekte hatten Bezug zur beruflichen Praxis von Lehrkräften." =
+      "practice_2",
+    "c) In der Veranstaltung wurden Problemstellungen adressiert, die mir später in meinem beruflichen Alltag begegnen könnten." =
+      "practice_3",
+    "d) Was ich in der Veranstaltung gelernt habe, kann ich in der Praxis anwenden." =
+      "practice_4"
+  ),
+  option = c(
+    "Stimme überhaupt nicht zu" = "1",
+    "Stimme eher nicht zu"      = "2",
+    "Stimme eher zu"            = "3",
+    "Stimme voll zu"            = "4" ))
+
+sd_question(
+  type  = "matrix",
+  id    = "ev_cognitive_activation",
+  label = "3. Kognitive Aktivierung",
+  row   = c(
+    "a) Mein Vorwissen wurde in die Veranstaltung einbezogen." =
+      "cog_1",
+    "b) In der Veranstaltung wurden Fragen oder Aufgaben gestellt, die mich zum Nachdenken angeregt haben." =
+      "cog_2",
+    "c) Ich konnte meine (zukünftigen) beruflichen Aufgaben in der Veranstaltung reflektieren." =
+      "cog_3",
+    "d) Die Rückmeldungen, die ich im Rahmen der Veranstaltung erhalten habe, lieferten mir konkrete Hinweise für meine professionelle Entwicklung." =
+      "cog_4",
+    "e) Die Veranstaltung bot die Möglichkeit, bisherige Routinen des Lehrberufs zu hinterfragen." =
+      "cog_5",
+    "f) In der Veranstaltung konnte ich mich in Unbekanntes eindenken." =
+      "cog_6"
+  ),
+  option = c(
+    "Stimme überhaupt nicht zu" = "1",
+    "Stimme eher nicht zu"      = "2",
+    "Stimme eher zu"            = "3",
+    "Stimme voll zu"            = "4"  ))
+
+sd_question(
+  type  = "matrix",
+  id    = "ev_exchange",
+  label = "4. Austausch",
+  row   = c(
+    "a) Ich hatte in der Veranstaltung Gelegenheit, mich mit den anderen Teilnehmenden intensiv über den Inhalt auszutauschen." =
+      "exchange_1",
+    "b) Die Veranstaltung bot Gelegenheit, gemeinsam mit anderen Teilnehmenden an Aufgaben zu arbeiten." =
+      "exchange_2",
+    "c) In der Veranstaltung wurde die Arbeit in Kleingruppen ermöglicht." =
+      "exchange_3"
+  ),
+  option = c(
+    "Stimme überhaupt nicht zu" = "1",
+    "Stimme eher nicht zu"      = "2",
+    "Stimme eher zu"            = "3",
+    "Stimme voll zu"            = "4"
+  )
+)
+
+
+
+```
+
+
+
+
+<div style="text-align: center; font-weight: bold; font-size: 19px;">
+Bitte klicken Sie auf "Weiter".
+</div>  
+<br><br><br>
+
+
+
+```{r}
+sd_next(next_page = "29_b")
+```
+
+***
+<div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
+
+:::
+
+
+
+::: {.sd_page id=page29_b} 
 
 <div style="text-align: center; font-weight: bold; font-size: 19px;">
 Geschafft! Vielen Dank für Ihre Teilnahme!
@@ -1263,6 +1383,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
