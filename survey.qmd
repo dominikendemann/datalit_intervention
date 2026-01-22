@@ -1200,19 +1200,12 @@ sd_next(next_page = "page29_a")
 
 <div style="text-align: left; font-weight: bold; font-size: 19px;">
 Bitte beurteilen Sie nun noch das gesamte Seminar "Lernforschungsprojekt".  
-Falls Sie keine Fragen sehen können Sie einfach auf "Weiter" klicken. 
+Falls Sie keine Fragen sehen, können Sie einfach auf "Weiter" klicken. Sie haben es geschafft!
 </div>
 <br>
 
 
 ```{r}
-sd_question(
-  type   = 'mc',
-  id     = 'dummy_lfp',
-  label  = "**Bitte beurteilen Sie nun noch das gesamte Seminar "Lernforschungsprojekt".**",
-  option = c( ))
-
-
 
 sd_question(
   type  = "matrix",
@@ -1359,6 +1352,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
