@@ -44,7 +44,15 @@ server <- function(input, output, session) {
   sd_skip_if()
 
   # Define any conditional display logic here (show a question if a condition is true)
-  sd_show_if()
+ sd_show_if(
+ # Wenn LFP, dann Zeige am ENde LV-Eval
+ input$intervention_1 == "int_1" ~ "ev_clarity",
+ input$intervention_1 == "int_1" ~ "ev_practice_relevance",
+ input$intervention_1 == "int_1" ~ "ev_cognitive_activation",
+ input$intervention_1 == "int_1" ~ "ev_exchange",
+
+ # Wenn kein LFP frage ob Schulung besucht vor Test
+ input$intervention_1 == "int_nein" ~ "intervention_2")
 
 #sd_skip_forward(
  #   input$pw != "vera25" ~ "page29")
@@ -52,7 +60,7 @@ server <- function(input, output, session) {
   # Database designation and other settings
   sd_server(
     db = db,
-    required_questions = c("einverstanden", "info_2", "code_1", "code_2", "code_3", "code_4", "code_5"), #Pflichtrfgen 
+    required_questions = c("info_2", "code_1", "code_2", "code_3", "code_4", "code_5"), #Pflichtrfgen 
     language = "de"
         )
 
@@ -129,3 +137,4 @@ server <- function(input, output, session) {
 
 # shinyApp() initiates your app - don't change it
 shiny::shinyApp(ui = sd_ui(), server = server)
+
