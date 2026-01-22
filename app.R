@@ -53,7 +53,7 @@ server <- function(input, output, session) {
   
 
  # Wenn kein LFP frage ob Schulung besucht vor Test und in welchem BL studiert
-  input$intervention_1 == "int_nein" ~  "bundesland_studium"
+  input$intervention_1 == "int_nein" ~  "bundesland_studium",
  input$intervention_1 == "int_nein" ~ "intervention_2")
 
 #sd_skip_forward(
@@ -139,6 +139,7 @@ server <- function(input, output, session) {
 
 # shinyApp() initiates your app - don't change it
 shiny::shinyApp(ui = sd_ui(), server = server)
+
 
 
 
