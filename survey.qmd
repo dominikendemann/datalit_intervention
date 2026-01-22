@@ -180,10 +180,10 @@ sd_next(next_page = 'page5')
 ```{r}
 sd_question(
   type  = 'mc',
-  id    = 'intervention',
-  label = "**Nehmen Sie an einem der Lernforschungsprojekte (Montags oder Donnerstags) von Dominik Endemann teil?**",
+  id    = 'intervention_1',
+  label = "**Nehmen Sie an einem der Lernforschungsprojekte (Montags oder Donnerstags) von Dominik Endemann im Rahmen Ihres Lehramtsstudiums an der  an der FU Berlin teil?**",
   option = c(
-    'Ja'    = 'int_ja',
+    'Ja'    = 'int_1',
     'Nein' = 'int_nein'
      ),
   width = "100%", 
@@ -193,76 +193,40 @@ sd_question(
 
 sd_question(
   type  = 'mc',
-  id    = 'geschlecht',
-  label = "**Wie identifizieren Sie sich in Bezug auf Ihr Geschlecht?**",
+  id    = 'intervention_2',
+  label = "**Sie bearbeiten den Test im Rahmen einer Studienteilnahme, in der es um den Umgang mit VERA- Rückmeldungen geht. Haben Sie im Rahmen der Studie bereits an einer ca. eineinhalbstündigen Schulung teilgenommen?**",
   option = c(
-    'weiblich'    = 'gesch_w',
-    'männlich' = 'gesch_m',
-    'andere'    = 'gesch_andere',
-    'keine Angabe' = 'gesch_ka'
+    'Ja, ich habe im Januar eine Schulung zum Umgang mit VERA-3-Rückmeldungen besucht.'    = 'int_2',
+    'Nein, ich habe im Rahmen der Studie bisher nur den Test bearbeitet.' = 'kontroll'
      ),
   width = "100%", 
   height = "100%"
 )  
 
-
-```
-<br>
-
-Wie alt sind Sie?
-
-```{r}
 sd_question(
-  type  = "numeric",
-  id    = "alter",
- label = "in Jahren:",
- width = "30%"
-)
-
-```
-
-
-```{r}
-
-sd_question(
-  type  = 'mc',
-  id    = 'fach',
-  label = "**Was ist/war Ihr Vertiefungsfach im Grundschullehramtsstudium?**",
+  type  = 'select',
+  id    = 'bundesland_studium',
+  label = "In welchem Bundesland studieren Sie Lehramt / haben Sie Lehramt studiert?",
   option = c(
-    'Deutsch'    = 'f_deu',
-    'Englisch' = 'f_eng',
-    'Französisch'    = 'f_fra',
-    'Mathematik' = 'f_mat',
-    'Informatik'    = 'f_inf',
-    'Physik' = 'f_phy',
-    'Geschichte'    = 'f_ges',
-    'Politik' = 'f_pol',
-    'Sachunterricht' = 'f_sach',
-    'Sonderpädagogik'    = 'f_sopaed'
-     ),
-  width = "100%", 
-  height = "100%"
+    "Baden-Württemberg" = "BW",
+    "Bayern"            = "BY", 
+    "Berlin"            = "BE",
+    "Brandenburg"       = "BB",
+    "Bremen"            = "HB",
+    "Hamburg"           = "HH", 
+    "Hessen"            = "HE",
+    "Mecklenburg-Vorpommern" = "MV",
+    "Niedersachsen"     = "NI",
+    "Nordrhein-Westfalen" = "NW",
+    "Rheinland-Pfalz"   = "RP",
+    "Saarland"          = "SL",
+    "Sachsen"           = "SN",
+    "Sachsen-Anhalt"    = "ST",
+    "Schleswig-Holstein" = "SH",
+    "Thüringen"         = "TH"
+  )
 )
 
-sd_question(
-  type  = "text",
-  id    = "fach_andere",
-  label = "Falls Ihr Fach nicht in der Liste aufgeführt ist, tragen Sie es bitte hier ein."
-)
-
-```
-
-In welchem Fachsemester befinden Sie sich? -  ***Bachelor- und Mastersemester bitte addieren.***
-
-```{r}
-sd_question(
-  type  = "numeric",
-  id    = "semester",
- label = "Semester:",
- width = "30%"
-)
-
-```
 
 
 
@@ -1299,6 +1263,7 @@ sd_close("Beenden")
 <div style="font-size: 11px;">Dominik Endemann | Freie Universität Berlin | Fachbereich Erziehungswissenschaft und Psychologie | Arbeitsbereich Unterrichts- und Schulevaluation</div> 
 
 :::
+
 
 
 
